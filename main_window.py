@@ -86,17 +86,17 @@ class MainWindow(QtWidgets.QMainWindow):
             'tentative' : 'Doubtful',
         }
         
-        self.genius = lg.Genius('sp_3Di2RG69rVR3f1MgPbpwCAyTuLjSTTTeynJSuHksnUf2AQs1JKmJYhY4EmX3iyc-OuCQ8BCFcyI_DP4y_aw',
+        self.genius = lg.Genius('',
                              skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"],
                              remove_section_headers=True)
         
-        authenticator = IAMAuthenticator('P-77zXE970WWfO_FxZYK3KSFfv81TNBgQ_J8ExEwfNRW')
+        authenticator = IAMAuthenticator('')
         self.tone_analyzer = ToneAnalyzerV3(
             version='2017-09-21',
             authenticator=authenticator)
         self.tone_analyzer.set_service_url('https://api.au-syd.tone-analyzer.watson.cloud.ibm.com/instances/318b552b-ffe6-4b90-b0d2-50b68f2c2560')
         
-        paralleldots.set_api_key('HYhMq8LIA7zQH1lGDrymHr8VDhmUr5Qi6RPHa0lK7mI')
+        paralleldots.set_api_key('')
         
     @QtCore.Slot()
     def chooseAudioFile(self):
@@ -202,7 +202,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         url='https://twinword-emotion-analysis-v1.p.rapidapi.com/analyze/',
                         headers={
                             'x-rapidapi-host': "twinword-emotion-analysis-v1.p.rapidapi.com",
-                            'x-rapidapi-key': "0e161fd98dmsh082cf7b9ab57d71p168c01jsn4629c7a60c32"
+                            'x-rapidapi-key': ""
                         },
                         params={'text' : lyrics})
                     response_dict = response.json()
@@ -216,7 +216,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     response = requests.request('POST',
                         url='https://api.promptapi.com/text_to_emotion',
                         headers={
-                            'apikey': 'YQ2fxBTsfCSj8CKX4Cc5NgnrQuaqtOMB'
+                            'apikey': ''
                         },
                         data=payload)
                     for (emotion, score) in response.json().items():
